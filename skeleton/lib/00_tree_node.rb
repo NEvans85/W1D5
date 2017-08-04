@@ -13,9 +13,8 @@ class PolyTreeNode
   end
 
   def parent=(node)
-   # TODO: refactor conditional
-    if @parent != node
-      @parent.children.delete(self) unless @parent.nil?
+    unless @parent == node || @parent.nil?
+      @parent.children.delete(self)
     end
     @parent = node
     @parent.children << self unless @parent.nil? || @parent.children.include?(self)
@@ -62,5 +61,5 @@ class PolyTreeNode
 
     nil
   end
-  
+
 end
