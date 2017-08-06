@@ -18,6 +18,14 @@ class TicTacToeNode
     end
   end
 
+  # def winning_node?(evaluator)
+  #   queue[self]
+  #   until queue.empty?
+  #     test_node = queue.shift
+  #     return test_node.board.winner == evaluator if test_node.board.won?
+  #     test_node.children.each { |kid| queue << kid }
+  #   end
+  # end
   def winning_node?(evaluator)
     return @board.winner == evaluator if @board.won?
     children.any? { |node| node.winning_node?(evaluator) }
@@ -48,4 +56,5 @@ class TicTacToeNode
       :x
     end
   end
+
 end

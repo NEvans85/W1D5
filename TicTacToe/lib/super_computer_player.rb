@@ -3,15 +3,15 @@ require 'byebug'
 
 class SuperComputerPlayer < ComputerPlayer
   def move(game, mark)
-     debugger
-    root = TicTacToeNode.new(game.board, mark)
+    root = TicTacToeNode.new(game.board, mark, 0)
+    best_kid = nil
     root.children.each do |node|
       return node.prev_move_pos if node.winning_node?(mark)
     end
     root.children.each do |node|
       return node.prev_move_pos unless node.losing_node?(mark)
     end
-    raise 'Come On AI, do better!'
+    raise 'Come On AI, do better!' if best_kid.nil?
   end
 end
 
