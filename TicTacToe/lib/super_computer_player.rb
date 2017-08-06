@@ -2,6 +2,9 @@ require_relative 'tic_tac_toe_node'
 require 'byebug'
 
 class SuperComputerPlayer < ComputerPlayer
+
+  # Move currently sees any winning move in the first tree and returns the first child
+  # it never look =s past the first
   def move(game, mark)
     root = TicTacToeNode.new(game.board, mark, 0)
     best_kid = nil
